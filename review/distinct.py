@@ -9,3 +9,4 @@ def isDistinct(year: int) -> bool:
 year = int(input("Please put in a year")) + 1
 while not isDistinct(year):
     year += 1
+print(year)
