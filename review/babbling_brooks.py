@@ -1,8 +1,10 @@
 streams_no = int(input("how many streams?: "))
 streams = []
 command = 0
+
 for _ in range(streams_no):
     streams.append(int(input("size of stream?: ")))
+
 while command != 77:
     command = int(input("Whats your command?: "))
     if command == 99:
@@ -16,4 +18,5 @@ while command != 77:
         streams[stream_joined] += streams[stream_joined-1]
         streams.pop(stream_joined-1)
         print(streams)
+        
 print(*streams)
