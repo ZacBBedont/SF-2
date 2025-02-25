@@ -64,3 +64,29 @@ print(lst)
 
 
 mtrx = [[1,2],[3,4],[5,6]]
+
+lst = [3,726272727,23,2]
+
+current_max = lst[0]
+for i in range(1,len(lst)):
+    if lst[i] > current_max:
+        current_max = lst[i]
+print(current_max)
+
+from math import factorial
+
+def binom(n,k):
+    return factorial(n)//(factorial(n-k)*factorial(k))
+l = binom(3,2)
+print(l)
+
+def pascals(rows): #space and time complexity
+    triangle = []
+    for row in range(rows+1):
+        individual = []
+        for upwards in range(row+1):
+            individual.append(binom(row,upwards))
+        triangle.append(individual)
+    return triangle
+answer = pascals(4)
+print(answer)
