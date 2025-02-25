@@ -80,13 +80,11 @@ def binom(n,k):
 l = binom(3,2)
 print(l)
 
-def pascals(rows): #space and time complexity
+def pascals(rows): #space and time complexity, n^3 and n^2, more efficitent by defining edge cases and adding the oher ones by indexing
     triangle = []
-    for row in range(rows+1):
+    for row in range(rows):
         individual = []
         for upwards in range(row+1):
             individual.append(binom(row,upwards))
-        triangle.append(individual)
-    return triangle
-answer = pascals(4)
-print(answer)
+        print(*individual)
+pascals(4)
