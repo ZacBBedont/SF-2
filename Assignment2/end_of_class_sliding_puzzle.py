@@ -79,6 +79,3 @@ def nextMove(board):
         elif user_input in moves:
             return user_input
         print("please input a valid move")
-
-board = getNewPuzzle(3)
-nextMove(board)
