@@ -58,23 +58,27 @@ def findEmptyTile(board):
 def nextMove(board):
     moves = ["W","A","S","D"]
     empty_tile = findEmptyTile(board)
+    print(empty_tile)
     displayBoard(board)
     valid = False
 
     if empty_tile[0] == 0:
-        moves[2] = "( )"
-    elif empty_tile[0] == len(board):
-        moves[0] = "( )"
+        moves[2] = " "
+    elif empty_tile[0] == len(board)-1:
+        moves[0] = " "
     if empty_tile[1] == 0:
-        moves[1] = "( )"
-    elif empty_tile[1] == len(board):
-        moves[3] = "( )"
+        moves[3] = " "
+    elif empty_tile[1] == len(board)-1:
+        moves[1] = " "
     
     while not valid:
-        print(f"\t({moves[0]})\nEnter WASD (or QUIT): ({moves[1]}) ({moves[2]}) ({moves[3]})")
+        print(f"\t\t\t  ({moves[0]})\nEnter WASD (or QUIT): ({moves[1]}) ({moves[2]}) ({moves[3]})")
         user_input = input("> ")
         if user_input.lower() == "quit":
             sys.exit()
         elif user_input in moves:
             return user_input
         print("please input a valid move")
+
+board = getNewPuzzle(3)
+nextMove(board)
