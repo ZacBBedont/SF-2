@@ -1,4 +1,8 @@
-lst = [(num, num**3) for num in range(1,6)]
+lst = [(num, [num**2, num+1]) for num in range(1,3)]
+num = lst[1][2]
+num[0] += 7
+print(num,lst)
+
 print(lst)
 lst = [num*3 for num in range(1,10)]
 print(lst)

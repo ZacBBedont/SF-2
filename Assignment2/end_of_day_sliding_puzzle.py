@@ -1,3 +1,5 @@
+#Zaccaria Broomhall Bedont 2438041
+
 import random
 import sys
 
@@ -58,7 +60,6 @@ def findEmptyTile(board):
 def nextMove(board):
     moves = ["W","A","S","D"]
     empty_tile = findEmptyTile(board)
-    print(empty_tile)
     displayBoard(board)
     valid = False
 
@@ -79,3 +80,53 @@ def nextMove(board):
         elif user_input in moves:
             return user_input
         print("please input a valid move")
+
+def makeMove(board,move):
+    empty_tile = findEmptyTile(board)
+    if move == "D":
+        board[empty_tile[0]][empty_tile[1]], board[empty_tile[0]][empty_tile[1]-1] = board[empty_tile[0]][empty_tile[1]-1], board[empty_tile[0]][empty_tile[1]]
+    elif move == "A":
+        board[empty_tile[0]][empty_tile[1]], board[empty_tile[0]][empty_tile[1]+1] = board[empty_tile[0]][empty_tile[1]+1], board[empty_tile[0]][empty_tile[1]]
+    elif move == "S":
+        board[empty_tile[0]][empty_tile[1]], board[empty_tile[0]-1][empty_tile[1]] = board[empty_tile[0]-1][empty_tile[1]], board[empty_tile[0]][empty_tile[1]]
+    else:
+        board[empty_tile[0]][empty_tile[1]], board[empty_tile[0]+1][empty_tile[1]] = board[empty_tile[0]+1][empty_tile[1]], board[empty_tile[0]][empty_tile[1]]
+
+def isOver(board,moves,n):
+    empty_row = []
+    board_list = []
+    if (moves > 31) and (n == 3):
+        return True
+    elif (moves > 80) and (n == 4):
+        return True
+    for row in board:
+        if "  " not in row:
+            if sorted(row) != row:
+                return False
+            else:
+                board_list += row
+        elif "  " in row:
+            for element in row:
+                if element != "  ":
+                    empty_row.append(element)
+            board_list += empty_row
+    print(board_list)
+    if sorted(board_list) != board_list:
+        return False
+    return True
+
+print("Welcome! you will create a board which you need to sort numerically by swapping numbers with the blank space in the board.\n controls are as follows when prompted: W to make a block move upwards, S to make a block move downwards, D to make the block move to the right and A to make the block move to the left.")
+n = int(input("how big do you want your board to be(choosing a size 3 (9 tiles) will have 31 moves allowed, and choosing a size 4(16 tiles) will have 80 moves allowed, otherwise you have infinite moves)? "))
+board = getNewPuzzle(n)
+turns = 0
+over = False
+while not isOver(board,turns,n):
+    makeMove(board,nextMove(board))
+    turns += 1
+displayBoard(board)
+if turns == 32 and n == 3:
+        print("Best of luck next time!")
+elif turns == 81 and n == 4:
+        print("Best of luck next time!")
+else:
+    print("You did it! I'm proud of you")
