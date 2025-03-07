@@ -1,5 +1,5 @@
 lst = [(num, [num**2, num+1]) for num in range(1,3)]
-num = lst[1][2]
+num = lst[1][1]
 num[0] += 7
 print(num,lst)
 
