@@ -1,0 +1,10 @@
+jack daniels 78 18 28 
+homer simpon 99 81 23
+hello world 11 67 82
+among us 82 77 11
+noah vezina 67 99 81
+jospehine margot 22 68 99 
+lisa simpson 99 81 99
+garbage disposal 71 67 98
+trash compactor 12 67 89
+potato peeler 45 68 91
