@@ -19,10 +19,7 @@ for input_id in range(5):
     pairs = 0
     for key1,key2 in d:
         if (key2,key1) in d and key2 != key1:
-            print(key2,key1)
-            pairs += d[(key2,key1)]
-            d[(key1,key2)] -= d[(key2,key1)]
+            pairs += d[(key2,key1)] * d[(key1,key2)]
             if d[(key1,key2)] < 0:
                 d[(key1,key2)] = 0
-    print(pairs)
-    print(d)
+    print(int(pairs/2))
