@@ -1,0 +1,17 @@
+by: zaccaria Broomhall Bedont
+date: 9/11 2001
+The mighty text file of 1975
+
+hello
+abc
+def
+1233
+is this boring you?
+\n\n 
+\n
+12 13perhaps better poetry will be written in the language of digital computersapplestomato12 13
+perhaps better poetry will be written in the language of digital computers
+apples
+tomato
+
+The end
