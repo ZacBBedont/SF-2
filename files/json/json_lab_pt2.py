@@ -21,9 +21,9 @@ for student in input_data['students']:
           str(student['examgrade3'])+ spacing(str(student['examgrade3']),'exam3')* " ",
           str(round(average,2))+ spacing(str(round(average,2)),'average') * " ")
     print('--------------------------------------------')
-print('exam1 average','exam2 average', 'exam3 average')
+print('exam1:average ','exam2:average', 'exam3:average')
 print('--------------------------------------------')
-print(round(exam1_average/5,2) + spacing(str(round(exam1_average/5,2)),'exam1 average')* " ", 
-      round(exam2_average/5,2) + spacing(str(round(exam2_average/5,2)),'exam2 average')* " ",
-      round(exam3_average/5,2) + spacing(str(round(exam3_average/5,2)),'exam3 average') * " ")
+print(str(round(exam1_average/5,2)) + spacing(str(round(exam1_average/5,2)),'exam1 average')* " ", 
+      str(round(exam2_average/5,2)) + spacing(str(round(exam2_average/5,2)),'exam2 average')* " ",
+      str(round(exam3_average/5,2)) + spacing(str(round(exam3_average/5,2)),'exam3 average') * " ")
 print('--------------------------------------------')
