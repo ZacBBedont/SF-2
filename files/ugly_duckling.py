@@ -2,7 +2,7 @@
 print story only to the user
 count the number of words in the story
 '''
-book_txt = open('files/book.txt','r')
+book_txt = open('files/txt filesbook.txt','r')
 book_lst = book_txt.readlines()
 first = True
 line_len = 0

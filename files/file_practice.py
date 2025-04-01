@@ -1,4 +1,4 @@
-output_file = open('files/accounts.txt','w')
+output_file = open('files/txt files/accounts.txt','w')
 
 for _ in range(5):
    line = input()

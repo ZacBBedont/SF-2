@@ -1,4 +1,4 @@
-cities_txt = open('files/cities.txt','w')
+cities_txt = open('files/txt files/cities.txt','w')
 n_list = []
 for _ in range(5):
     n = int(input())
@@ -8,7 +8,7 @@ for _ in range(5):
         cities_txt.write(city+ " " + state+'\n')
     cities_txt.write('\n')
 cities_txt.close()
-cities_txt = open('files/cities.txt','r')
+cities_txt = open('files/txt files/cities.txt','r')
 for input_id in range(5):
     d = {}
     for _ in range(n_list[input_id]):
