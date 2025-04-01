@@ -1,4 +1,4 @@
-file_name = 'files/book.txt'
+file_name = 'files/txt files/book.txt'
 try:
     input_file = open(file_name,'r')
 except FileNotFoundError:
@@ -7,7 +7,7 @@ except FileNotFoundError:
 else:
     for line in input_file:
         print(line.rstrip())
-input_file = open('files/blah.txt','r')
+input_file = open('files/txt files/blah.txt','r')
 blah_lst = input_file.readlines()
 output_file.writelines(blah_lst)
 output_file.close()
