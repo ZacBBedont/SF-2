@@ -5,7 +5,7 @@ a dictionary of dictionaries.  The outer dictionary key is the account
 number.  The inner dictionary key is the last name and the value in 
 the inner dictionary is the balance.  Print the final dictionary.  
 '''
-output_file = open('files/accounts.txt','r')
+output_file = open('files/txt files/accounts.txt','r')
 d = {}
 for line in output_file:
     account,name,balance = line.split()
@@ -33,7 +33,7 @@ for line in output_file:
     (iii) the average of the average of all 3 exams for all students.  
 '''
 def creatGrades():
-    output_file = open('files/grades.txt','w')
+    output_file = open('files/txt files/grades.txt','w')
     for _ in range(10):
         output_file.write(input() + '\n')
     output_file.close()
@@ -42,7 +42,7 @@ def b():
     exam1_avg = 0
     exam2_avg = 0
     exam3_avg = 0
-    input_file = open('files/grades.txt','r')
+    input_file = open('files/txt files/grades.txt','r')
     for line in input_file:
         line = line.split()
         grades[(line[0],line[1])] = [line[2],line[3],line[4]]
@@ -84,7 +84,7 @@ word in the words.txt file is on a new line.
     One you finish writing to your result.txt file, print the content of
     your file.  Make sure to close all files that you have opened.  
 '''
-words_updated = open('files/words_updated.txt','w')
+words_updated = open('files/txt files/words_updated.txt','w')
 words = open('files/words.txt','r')
 lst = list(map(str.rstrip,words.readlines()))
 for word in lst:
@@ -94,8 +94,8 @@ words.close()
 words_updated.close()
 
 k = int(input())
-words_updated = open('files/words_updated.txt','r')
-result = open('files/result.txt','w')
+words_updated = open('files/txt files/words_updated.txt','r')
+result = open('files/txt files/result.txt','w')
 line_len = 0
 lst = words_updated.readline().split()
 for word in lst:
