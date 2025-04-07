@@ -17,15 +17,15 @@ def avgTempYear(temp_dict,year):
         return round(average,2)
 
 def topThreeYears(temp_dict):
-    avg_lst = []
+    avg_set = set()
+    top_three = []
     for year in temp_dict:
         average = avgTempYear(temp_dict,year)
-        avg_lst.append(average)
-    for temp_pos in range(len(avg_lst)):
-        for other_temp in range(len(avg_lst)):
-                if avg_lst[other_temp] <= avg_lst[temp_pos]:
-                    avg_lst[other_temp],avg_lst[temp_pos] = avg_lst[temp_pos],avg_lst[other_temp]
-    return avg_lst[:3]
+        avg_set.add(average)
+    for _ in range(3):
+        top_three.append(max(avg_set))
+        avg_set.remove(max(avg_set))
+    return top_three
 
 def avgTempMonth(temp_dict,month):
     month_pos = {'JAN':1,'FEB':2,'MAR':3,'APR':4,'MAY':5,'JUN':6,'JUL':7,'AUG':8,'SEP':9,'OCT':10,'NOV':11,'DEC':12}
@@ -43,6 +43,3 @@ for line in input_file:
     if len(line) > 0 and line[0].isdigit():
         temp_floats = list(map(float,line[1:]))
         temp_dict[int(line[0])] = list(map(toCelcius,temp_floats))
-
-
-
