@@ -23,8 +23,9 @@ def topThreeYears(temp_dict):
         average = avgTempYear(temp_dict,year)
         avg_set.add(average)
     for _ in range(3):
-        top_three.append(max(avg_set))
-        avg_set.remove(max(avg_set))
+        top = max(avg_set)
+        top_three.append(top)
+        avg_set.remove(top)
     return top_three
 
 def avgTempMonth(temp_dict,month):
