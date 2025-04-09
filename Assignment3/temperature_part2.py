@@ -37,8 +37,11 @@ init_lines = ['Average monthly temperatures in Dubuque, Iowa, \n','January 1964 
 output_file.writelines(init_lines)
 for year in temp_dict:
     output_line = str(year) + ' '*(8-len(str(year)))
-    for temp in temp_dict[year]:
-        output_line += str(temp) + ' '*(8-len(str(temp)))
+    for temp_pos in range(len(temp_dict[year])):
+        if temp_dict[year][temp_pos] != temp_dict[year][-1]:
+            output_line += str(temp_dict[year][temp_pos]) + ' '*(8-len(str(temp_dict[year][temp_pos])))
+        else:
+            output_line += str(temp_dict[year][temp_pos])
     if year != 1975:
         output_line = output_line + '\n'
     output_file.writelines(output_line)
