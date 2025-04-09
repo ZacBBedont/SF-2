@@ -21,14 +21,6 @@ def belowFreezing(temp_dict):
         months.append(month_pos[month+1])
     return months
 
-def lineFormat(year,temps):
-    output_line = str(year) + ' '*(8-len(str(year)))
-    for temp in temps:
-        output_line += str(temp) + ' '*(8-len(str(temp)))
-    if year != 1975:
-        return output_line + '\n'
-    else:
-        return output_line
 input_file = open('Assignment3/data.txt','r')
 temp_dict = {}
 
@@ -41,7 +33,14 @@ input_file.close()
 
 output_file = open('Assignment3/data_celcius.txt','w')
 init_lines = ['Average monthly temperatures in Dubuque, Iowa, \n','January 1964 through December 1975, n=144\n\n','	JAN	FEB	MAR	APR	MAY	JUN	JUL	AUG	SEP	OCT	NOV	DEC\n']
+
 output_file.writelines(init_lines)
 for year in temp_dict:
-    output_file.writelines(lineFormat(year,temp_dict[year]))
+    output_line = str(year) + ' '*(8-len(str(year)))
+    for temp in temp_dict[year]:
+        output_line += str(temp) + ' '*(8-len(str(temp)))
+    if year != 1975:
+        output_line = output_line + '\n'
+    output_file.writelines(output_line)
+
 output_file.close()
