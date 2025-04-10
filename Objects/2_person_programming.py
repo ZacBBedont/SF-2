@@ -1,7 +1,11 @@
 from __future__ import annotations
+from functools import total_ordering
 import math
+import random
 
+@total_ordering
 class Fraction:
+
     def __init__(self,numerator=0,denominator=1):
         if denominator == 0:
             raise ZeroDivisionError('Cannot divide by zero')
@@ -14,23 +18,34 @@ class Fraction:
         self.numerator = abs(numerator) // gcd * sign
 
     def __add__(self, other_fraction: Fraction) -> Fraction:
-        added_f = Fraction(self.numerator, self.denominator)
-        added_f.numerator *= other_fraction.denominator
-        added_f.denominator *= other_fraction.denominator
-        added_f.numerator += other_fraction.numerator*self.denominator
-        return added_f
+        denominator = self.denominator * other_fraction.denominator
+        numerator = self.numerator * (denominator//self.denominator) + other_fraction.numerator * (denominator//other_fraction.denominator)
+        return Fraction(numerator, denominator)
 
     def __sub__(self, other_fraction: Fraction) -> Fraction:
-        subbed_f = Fraction(self.numerator, self.denominator)
-        subbed_f.numerator *= other_fraction.denominator
-        subbed_f.denominator *= other_fraction.denominator
-        subbed_f.numerator -= other_fraction.numerator*self.denominator
-        return Fraction(subbed_f.numerator, subbed_f.denominator)
+        denominator = self.denominator * other_fraction.denominator
+        numerator = self.numerator * (denominator//self.denominator) - other_fraction.numerator * (denominator//other_fraction.denominator)
+        return Fraction(numerator, denominator)
 
-f1 = Fraction(10, 3)
-f2 = Fraction(6, -2)
-result = f1 - f2
-print(result.numerator, result.denominator)
-            
+    def __eq__(self,other_fraction:Fraction)->Fraction:
+        return self.numerator == other_fraction.numerator and self.denominator == other_fraction.denominator
+    
+    def __gt__(self,other_fraction:Fraction) -> Fraction:
+        return (self.numerator/self.denominator) > (other_fraction.numerator/other_fraction.denominator)
+    
+    def __repr__(self)-> str:
+        return f'{self.numerator}/{self.denominator}'
+
+    def __float__(self) -> float:
+        return self.numerator / self.denominator
 
 
+def sortFractions(lst: list[Fraction]) -> list[Fraction]:
+    '''
+    Given a list of fractions, return the fractions in increasing order
+    '''
+    for i in range(len(lst)):
+        for j in range(len(lst)):
+            if float(lst[i]) > float(lst[j]):
+                lst[i], lst[j] = lst[j], lst[i]
+    return lst
